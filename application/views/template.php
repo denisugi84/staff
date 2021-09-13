@@ -157,6 +157,7 @@ table.dataTable.table-striped.DTFC_Cloned thead {
                         </a>
                         <ul class="sub-menu">
                             <li id="detail"><a href="<?php echo base_url() ?>personel">Daftar Anggota</a></li>
+                            <li id="agenda"><a href="<?php echo base_url() ?>agenda">Agenda Meeting</a></li>
                         </ul>
                     </li>
                     

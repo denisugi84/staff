@@ -17,7 +17,7 @@
 
 // local base url
 
-$config['base_url']	= 'https://localhost/staff';
+$config['base_url']	= 'http://localhost/staff';
 
 // server base url
 
