@@ -21,7 +21,7 @@
 
 // server base url
 
-$config['base_url']	= 'https://staff.gecofficial.com';
+$config['base_url']	= 'https://staff.gecofficial.com'; 
 
 /*
 |--------------------------------------------------------------------------
