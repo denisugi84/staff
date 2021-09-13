@@ -17,11 +17,11 @@
 
 // local base url
 
-//$config['base_url']	= 'https://localhost/staff';
+$config['base_url']	= 'https://localhost/staff';
 
 // server base url
 
-$config['base_url']	= 'https://staff.gecofficial.com'; 
+// $config['base_url']	= 'https://staff.gecofficial.com'; 
 
 /*
 |--------------------------------------------------------------------------
