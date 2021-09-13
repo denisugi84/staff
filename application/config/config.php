@@ -15,7 +15,13 @@
 |
 */
 
-$config['base_url']	= 'http://localhost/staff';
+// local base url
+
+//$config['base_url']	= 'https://localhost/staff';
+
+// server base url
+
+$config['base_url']	= 'https://staff.gecofficial.com';
 
 /*
 |--------------------------------------------------------------------------
