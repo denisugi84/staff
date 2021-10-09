@@ -56,19 +56,15 @@ class auth extends CI_Controller{
 
                 } else if ($role == 3) {
 
-                    $role = 'Manager';
+                    $role = 'Staff';
 
                 } else if ($role == 2) {
 
+                    $role = 'Pengurus';
+
+                }  else {
+
                     $role = 'User';
-
-                } else if ($role == 5) {
-
-                    $role = 'User WB';
-
-                } else {
-
-                    $role = 'Guest';
 
                 }
 

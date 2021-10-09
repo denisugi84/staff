@@ -27,6 +27,10 @@ class agenda extends ci_controller{
     
     }
 
+
+
+
+
       function post()
     {
         if ($this->session->userdata('level') != 'Manager'){

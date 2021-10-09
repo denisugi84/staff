@@ -46,7 +46,7 @@
                             <td align="center" width="30"><?php echo $no ?></td>
                             <td align="left"><?php echo $r->nameUser ?></td>
                             <td align="left"><?php echo $r->idUser ?></td>
-                            <td align="center"><?php if ($r->groupUser==4){echo 'Administrator';} elseif ($r->groupUser==3){echo 'Manager';} elseif ($r->groupUser==2){echo 'User';} elseif ($r->groupUser==5){echo 'User WB';}else { echo 'Guest';} ?></td>
+                            <td align="center"><?php if ($r->groupUser==4){echo 'Administrator';} elseif ($r->groupUser==3){echo 'Staff';} elseif ($r->groupUser==2){echo 'Pengurus';} else { echo 'User';} ?></td>
                             <td align="center"><?php echo $r->last_login ?></td>
                             
                             <td align="center"><a href="<?php echo 'users/edit/'.$r->idUser;?>"><i class="fas fa-pencil-alt fa-fw"></i></a> | <a href="javascript:;" data-click="swal-danger"><span class="text-danger"><i class="fas fa-trash fa-fw"></i></span></a></td>

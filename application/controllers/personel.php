@@ -10,15 +10,63 @@ class personel extends ci_controller{
     function index()
     {
 
+            $nopeg ='';
+            $nama =''; 
+            $jabatan = '';
+            $noAnggota = '';
+            $unit = '';
+            $dinas = '';
+            $kpk = '';
+            $koperasi ='';
+
+            if(isset($_POST['inputNopeg'])||isset($_POST['inputName'])||isset($_POST['inputJabatan'])||isset($_POST['inputNoAnggota'])||isset($_POST['inputUnit'])||isset($_POST['inputDinas'])||isset($_POST['inputKPK'])||isset($_POST['inputKoperasi'])){
+
+                
+                    if (isset($_POST['inputNopeg'])){
+                        $nopeg = $_POST['inputNopeg'];
+                    }
+                     
+                    if (isset($_POST['inputName'])){
+                        $nama = $_POST['inputName'];                    
+                    }
+                        
+                    if (isset($_POST['inputJabatan'])){
+                        $jabatan = $_POST['inputJabatan'];
+                    }
+                    
+                    if (isset($_POST['inputNoAnggota'])){
+                        $noAnggota = $_POST['inputNoAnggota'];
+                    }
+                    
+                    if (isset($_POST['inputUnit'])){
+                        $unit = $_POST['inputUnit'];
+                    }
+                    
+                    if (isset($_POST['inputDinas'])){
+                        $dinas = $_POST['inputDinas'];
+                    }
+                    
+                    if (isset($_POST['inputKPK'])){
+                        $kpk = $_POST['inputKPK'];
+                    }
+                    
+                    if (isset($_POST['inputKoperasi'])){
+                        $koperasi = $_POST['inputKoperasi'];
+                    }
+                   
+
+                }
+
+       
         
-        $data['record']=  $this->model_personel->viewdata();
+        $data['record']=  $this->model_personel->viewdata($nopeg,$nama,$jabatan,$noAnggota,$unit,$dinas,$kpk,$koperasi);
         $this->template->load('template','personel/list',$data);
     
     }
 
       function post()
     {
-        if ($this->session->userdata('level') != 'Manager'){
+        if ($this->session->userdata('level') != 'Staff' && $this->session->userdata('level') != 'Administrator'){
             redirect('dashboard');
         } elseif(isset($_POST['id'])){
             
@@ -49,7 +97,7 @@ class personel extends ci_controller{
     
     function edit()
     {
-       if ($this->session->userdata('level') != 'Manager'){
+       if ($this->session->userdata('level')=='Staff' && $this->session->userdata('level')=='Administrator'){
             redirect('dashboard');
         } elseif(isset($_POST['id'])){
           

@@ -49,10 +49,9 @@
                                     <div class="col-md-10 col-sm-10">
                                         <select class="form-control" id="role" name="role">
                                             <option value="">Please Select</option>
-                                            <option value="1">Guest</option>
-                                            <option value="2">User</option>
-                                            <option value="5">User WB</option>
-                                            <option value="3">Manager</option>
+                                            <option value="1">User</option>
+                                            <option value="2">Pengurus</option>
+                                            <option value="3">Staff</option>
                                             <option value="4">Administrator</option>
                                         </select>
                                     </div>

@@ -2,7 +2,7 @@
 class model_personel extends CI_Model{
     
     
-    function viewdata()
+    function viewdata($nopeg,$nama,$jabatan,$noAnggota,$unit,$dinas,$kpk,$koperasi)
     {
 
         $this->db->select(' 
@@ -22,7 +22,20 @@ class model_personel extends CI_Model{
         $this->db->join('anggota as a','p.NOPEG=a.NOPEG','right');
         $this->db->join('unit as u','a.ID_UNIT=u.ID_UNIT');
         $this->db->where('STATUS','1');
+        $this->db->like('a.NOPEG',$nopeg,'both');
+        $this->db->like('a.NAMA',$nama,'both');
+        $this->db->like('a.NO_ANGGOTA',$noAnggota,'both');
+        $this->db->like('u.UNIT',$unit,'both');
+        $this->db->like('u.DINAS',$dinas,'both');
+        $this->db->like('a.KPK',$kpk,'both');
+        $this->db->like('a.KOPERASI',$koperasi,'both');
+        
         $this->db->order_by('NO_ANGGOTA','DESC');
+        if ( $dinas != '' || $kpk !='' || $koperasi !=''){
+        $this->db->limit(4000);
+        } else{
+        $this->db->limit(300);
+        }
 
         return $this->db->get();
     }

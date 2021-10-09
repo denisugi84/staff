@@ -103,7 +103,19 @@ var handleMenuMarker = function() {
 	}
 
 
+var handleReset = function() {
+	$('[data-click="resetBtn"]').	click( function() {
+		  document.getElementById("inputNopeg").value = "";
+		  document.getElementById("inputName").value = '';
+		  document.getElementById("inputNoAnggota").value = '';
+		  document.getElementById("inputUnit").value = '';
+		  document.getElementById("inputDinas").value = '';
+		  document.getElementById("inputKPK").value = '';
+		  document.getElementById("inputKoperasi").value = '';
 
+		return false;
+	});
+}
 
 
 $(document).ready(function() {
@@ -111,5 +123,6 @@ $(document).ready(function() {
 	TableManageCombine.init();
 
 	handleMenuMarker();
+	handleReset();
 
 });

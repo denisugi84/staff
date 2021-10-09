@@ -49,19 +49,22 @@ $active_group = 'default';
 $active_record = TRUE;
 
 // local database
-/*
+
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'chrysant';
 $db['default']['database'] = 'staff';
 
-*/
+/*
 // server database
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'u1482791_denisugi';
 $db['default']['password'] = 'ChrysanT84--';
 $db['default']['database'] = 'u1482791_staff';
+
+
+*/
 
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
