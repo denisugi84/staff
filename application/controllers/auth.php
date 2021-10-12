@@ -114,7 +114,7 @@ class auth extends CI_Controller{
 
     {
 
-        $this->load->view('error/404');
+        $this->load->view('errors/404');
 
     }
 
