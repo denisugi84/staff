@@ -28,14 +28,32 @@
             <!-- end panel-heading -->
        <!-- begin panel-body -->
             <div class="panel-body">
-              
+                  <div class="form-group">
+                  <div class="alert alert-danger fade show m-b-40">
+                    <span class="close" data-dismiss="alert">×</span>
+                        <b><?php if(!empty($message)){echo $message;}?></b>
+                  </div>
+                </div>
                  <?php $attribute = array ('id'=>'accountForm','autocomplete'=>'off', 'class'=>'form-horizontal', 'data-parsley-validate'=>'true');
                 echo form_open('personel/post',$attribute); ?>
                 <fieldset>
+                
                 <div class="form-group row m-b-15">
                   <label class="col-md-4 col-sm-4 col-form-label" for="inputId">No. Pegawai * :</label>
                   <div class="col-md-8 col-sm-8">
                     <input class="form-control" id="inputId" name="inputId" type="number" min="510000" max="999999" data-parsley-required="true" placeholder="Nomor Pegawai">
+                  </div>
+                </div>
+                <div class="form-group row m-b-15">
+                  <label class="col-md-4 col-sm-4 col-form-label" for="inputId">No. Anggota * :</label>
+                  <div class="col-md-8 col-sm-8">
+                    <input class="form-control" id="inputIdAnggota" name="inputIdAnggota" type="number" min="200000" max="999999" data-parsley-required="true" placeholder="Nomor Anggota">
+                  </div>
+                </div>
+                <div class="form-group row m-b-15">
+                  <label class="col-md-4 col-sm-4 col-form-label" for="inputUuid">UUID * :</label>
+                  <div class="col-md-8 col-sm-8">
+                    <input class="form-control" id="inputUuid" name="inputUuid" type="text" placeholder="Nomor UUID">
                   </div>
                 </div>
                 <div class="form-group row m-b-15">
@@ -49,10 +67,11 @@
                   <div class="col-md-8 col-sm-8">
                      <select id="inputDinas" name="inputDinas" class="form-control" data-parsley-required="true">
                         <option value="">Please Select</option>
-                        <option value="AMT">AMT</option>
-                        <option value="SAMT">SAMT</option>
-                        <option value="AME">AME</option>
-                        <option value="SAME">SAME</option>
+                         <?php foreach ($record->result() as $r) { ?>
+
+                        <option value="<?php echo $r->DINAS?>"><?php echo $r->DINAS ?> </option>
+                      
+                      <?php } ?>
 
                     </select>
                   </div>
@@ -79,7 +98,7 @@
                  <div class="form-group row m-b-15">
                   <label class="col-md-4 col-sm-4 col-form-label" for="inputBirth">Tanggal Lahir :</label>
                   <div class="col-md-8 col-sm-8">
-                    <input type="text" class="form-control" id="datepicker-default"  name="inputBirth" placeholder="Tanggal Lahir" >
+                    <input type="text" class="form-control" id="datepicker-default"  name="inputBirth" placeholder="Tanggal Lahir" data-parsley-required>
                   </div>
                 </div>
                 <div class="form-group row m-b-15">
@@ -108,11 +127,18 @@
                     </div>
                   </div>
                 </div>
+                <div class="form-group row m-b-15">
+                  <label class="col-md-4 col-sm-4 col-form-label" for="inputEmail">ID Koperasi :</label>
+                  <div class="col-md-8 col-sm-8">
+                    <input id="inputIdKoperasi" name="inputIdKoperasi" type="text" class="form-control" placeholder="Nomor ID Koperasi">
+                  </div>
+                </div>
                 
                 <div class="form-group row">
                   <label class="col-md-4 col-sm-4 col-form-label" for="message">&nbsp;</label>
                     <div class="col-md-8 col-sm-8">
                       <button type="submit" class="btn btn-sm btn-primary m-r-5">Save</button>
+                      <button type="reset" class="btn btn-sm btn-secondary m-r-5">Reset</button>
                       <a class="btn btn-sm btn-default" href="<?php echo base_url()?>personel">Cancel</a>
                     </div>
                   </div>
@@ -138,9 +164,39 @@
   <!-- ================== END BASE JS ================== -->
   
   <!-- ================== BEGIN PAGE LEVEL JS ================== -->
+
   <script src="<?php echo base_url();?>assets/plugins/parsleyjs/dist/parsley.min.js"></script>
   <script src="<?php echo base_url();?>assets/plugins/highlight.js/highlight.min.js"></script>
-  <script src="<?php echo base_url();?>assets/js/demo/render.highlight.js"></script>
+ 
   <script src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
   <script src="<?php echo base_url();?>assets/js/demo/personel-detail-edit.js"></script>
+  <script type='text/javascript'>
+          $(document).ready(function(){
+                
+                // City change
+                $('#inputDinas').change(function(){
+                    var dinas = $(this).val();
+
+                    // AJAX request
+                    $.ajax({
+                        url:'<?=base_url()?>personel/listUnit',
+                        method: 'post',
+                        data: {dinas: dinas},
+                        dataType: 'json',
+                        success: function(response){
+
+                            // Remove options
+                            $('#inputUnit').find('option').not(':first').remove();
+
+                            // Add options
+                            $.each(response,function(index,data){
+                                $('#inputUnit').append('<option value="'+data['ID_UNIT']+'">'+data['UNIT']+'</option>');
+                            });
+                        }
+                    });
+                });  
+                
+            });
+        </script>
+  
   <!-- ================== END PAGE LEVEL JS ================== -->

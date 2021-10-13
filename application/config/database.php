@@ -77,13 +77,13 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-$db['default']['db_debug'] = false;
+
 
 
 $db['conn2']['dbdriver'] = 'mysqli';
 $db['conn2']['dbprefix'] = '';
 $db['conn2']['pconnect'] = TRUE;
-$db['conn2']['db_debug'] = TRUE;
+$db['conn2']['db_debug'] = false;
 $db['conn2']['cache_on'] = FALSE;
 $db['conn2']['cachedir'] = '';
 $db['conn2']['char_set'] = 'utf8';

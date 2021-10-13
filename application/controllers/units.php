@@ -16,7 +16,8 @@ class units extends ci_controller{
         $this->template->load('template','units/lihat_data',$data);
         }
     }
-    
+
+
     function post()
     {
         if(isset($_POST['submit'])){

@@ -42,13 +42,44 @@ class model_personel extends CI_Model{
     
     function post($data)
     {
-        $this->db->insert('personel',$data);
+        $this->db->insert('anggota',$data);
     }
 
      function get_one($id)
     {
         $param  =   array('idPers'=>$id);
         return $this->db->get_where('personel',$param);
+    }
+
+      function get_id($id)
+    {
+        $this->db->where('NOPEG',$id);
+        $query = $this->db->count_all_results('anggota');
+        if ($query > 0){
+        return true;
+        } else {
+            return false;
+        }
+    }
+      function get_uuid($uuid)
+    {
+        $this->db->where('UUID',$uuid);
+        $query = $this->db->count_all_results('anggota');
+        if ($query > 0){
+        return true;
+        } else {
+            return false;
+        }
+    }
+      function get_idAnggota($idAnggota)
+    {
+        $this->db->where('NO_ANGGOTA',$idAnggota);
+        $query = $this->db->count_all_results('anggota');
+        if ($query > 0){
+        return true;
+        } else {
+            return false;
+        }
     }
     
     function edit($data,$id)
