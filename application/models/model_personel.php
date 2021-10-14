@@ -47,8 +47,12 @@ class model_personel extends CI_Model{
 
      function get_one($id)
     {
-        $param  =   array('idPers'=>$id);
-        return $this->db->get_where('personel',$param);
+        $this->db->select('*');
+        $this->db->from('anggota');
+        $this->db->join('unit','unit.ID_UNIT=anggota.ID_UNIT');
+        $this->db->where('NOPEG',$id);
+
+        return $this->db->get();
     }
 
       function get_id($id)
@@ -82,10 +86,10 @@ class model_personel extends CI_Model{
         }
     }
     
-    function edit($data,$id)
+    function edit($id,$data)
     {
-        $this->db->where('idPers',$id);
-        $this->db->update('personel',$data);
+        $this->db->where('NOPEG',$id);
+        $this->db->update('anggota',$data);
     }
 
 }

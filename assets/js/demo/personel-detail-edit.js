@@ -37,6 +37,16 @@ var handleDatepicker = function() {
 
 };
 
+var handleDatepicker2 = function() {
+	$('#datepicker-default-1').datepicker({
+		todayHighlight: true,
+		autoclose:true,
+		format: 'yyyy-mm-dd'
+	});
+
+};
+
+
 
 var handleMenuMarker = function() {
 	document.getElementById("personel").className = 'has-sub active';
@@ -50,6 +60,7 @@ var FormPlugins = function () {
 		init: function () {
 			handleDatepicker();
 			handleMenuMarker();
+			handleDatepicker2();
 	
 		}
 	};

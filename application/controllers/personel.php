@@ -139,35 +139,47 @@ class personel extends ci_controller{
     
     function edit()
     {
-       if ($this->session->userdata('level')=='Staff' && $this->session->userdata('level')=='Administrator'){
+       if ($this->session->userdata('level') != 'Staff' && $this->session->userdata('level') != 'Administrator'){
             redirect('dashboard');
-        } elseif(isset($_POST['id'])){
-          
-            $id         =   $this->input->post('id');
-            $name       =   $this->input->post('name');
-            $email      =   $this->input->post('email');
-            $amel       =   $this->input->post('amel');
-            $cs         =   $this->input->post('cs');
-            $ga         =   $this->input->post('ga');
-            $validity   =   $this->input->post('validity');
-            $status     =   $this->input->post('status');
-            $title     =   $this->input->post('title');
-            $data       =   array('idPers'=>$id,
-                                'namePers'=>ucwords(strtolower($name)),
-                                'email'=>strtolower($email),
-                                'amelNo'=>$amel,
-                                'csNo'=>$cs,
-                                'gaNo'=>$ga,
-                                'validity'=>date('Y-m-d',strtotime($validity)),
-                                'title'=>$title,
-                                'status'=>$status);
-            $this->model_personel->edit($data,$id);
-            redirect('personel');
-        }
-        else{
+        } elseif(isset($_POST['submit'])){
+            
+            $id             =   $this->input->post('inputId');
+            $name           =   $this->input->post('inputName');
+            $unit           =   $this->input->post('inputUnit');
+            $idAnggota      =   $this->input->post('inputIdAnggota');
+            $uuid           =   $this->input->post('inputUuid');
+            $email          =   $this->input->post('inputEmail');
+            $lahir          =   $this->input->post('inputBirth');
+            $kpk            =   $this->input->post('inputKpk');
+            $koperasi       =   $this->input->post('inputKoperasi');
+            $idKoperasi     =   $this->input->post('inputIdKoperasi');
+            $tanggalDaftar  =   $this->input->post('inputTanggalDaftar');
+            $status         =   $this->input->post('inputStatus');
+            $data           =   array(
+                                
+                                'NAMA'=>ucwords(strtolower($name)),
+                                'UUID' => $uuid,
+                                'NO_ANGGOTA' => $idAnggota,
+                                'ID_UNIT' => $unit,
+                                'EMAIL'=>strtolower($email),
+                                'TANGGAL_LAHIR'=>$lahir,
+                                'KPK'=>$kpk,
+                                'KOPERASI'=>$koperasi,
+                                'ID_KOPERASI'=>$idKoperasi,
+                                'TANGGAL_DAFTAR'=>$tanggalDaftar,
+                                'STATUS'=>$status);
+               
+                    $this->model_personel->edit($id,$data);
+                    redirect('personel');  
+
+
+
+            
+       } else{
             $id=  $this->uri->segment(3);
             
             $data['record']     =  $this->model_personel->get_one($id)->row_array();
+            $data['select']=  $this->model_units->listDinas();
             $this->template->load('template','personel/edit',$data);
         }
     }
