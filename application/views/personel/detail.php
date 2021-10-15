@@ -140,7 +140,7 @@
 </div>
 <hr class="bg-gray-500">
 <div class="d-flex">
-<a class="btn btn-sm btn-primary" href="<?php echo base_url()?>personel">Kembali</a>
+<button class="btn btn-sm btn-primary" onclick="window.history.back();">Kembali</button>
 <div class="flex-1 ps-3">
 </div>
 </div>
