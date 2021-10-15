@@ -13,11 +13,13 @@
 <!-- ================== BEGIN BASE CSS STYLE ================== -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <link href="<?php echo base_url() ?>assets/css/default/app.min.css" rel="stylesheet" />
+  <link href="<?php echo base_url() ?>assets/css/vendor.min.css" rel="stylesheet" />
 
   <!-- ================== END BASE CSS STYLE ================== -->
   
   <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
   <link href="<?php echo base_url() ?>assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
+   <link href="<?php echo base_url() ?>assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
   <link href="<?php echo base_url() ?>assets/plugins/nvd3/build/nv.d3.css" rel="stylesheet" />
   <link href="<?php echo base_url() ?>assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
   <link href="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />

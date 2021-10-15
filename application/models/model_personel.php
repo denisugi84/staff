@@ -48,9 +48,11 @@ class model_personel extends CI_Model{
      function get_one($id)
     {
         $this->db->select('*');
-        $this->db->from('anggota');
-        $this->db->join('unit','unit.ID_UNIT=anggota.ID_UNIT');
-        $this->db->where('NOPEG',$id);
+        $this->db->from('pengurus as p');
+        $this->db->join('jabatan as j', 'p.KODE_JABATAN=j.KODE_JABATAN');
+        $this->db->join('anggota as a','p.NOPEG=a.NOPEG','right');
+        $this->db->join('unit as u','a.ID_UNIT=u.ID_UNIT');
+        $this->db->where('a.NOPEG',$id);
 
         return $this->db->get();
     }

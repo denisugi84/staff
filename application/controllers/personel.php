@@ -136,6 +136,14 @@ class personel extends ci_controller{
 
         echo json_encode($data);
     }
+
+     public function detail(){
+            
+            $id=  $this->uri->segment(3);       
+            $data['record']     =  $this->model_personel->get_one($id)->row_array();
+            $this->template->load('template','personel/detail',$data);
+
+    }
     
     function edit()
     {
@@ -176,8 +184,7 @@ class personel extends ci_controller{
 
             
        } else{
-            $id=  $this->uri->segment(3);
-            
+            $id=  $this->uri->segment(3);       
             $data['record']     =  $this->model_personel->get_one($id)->row_array();
             $data['select']=  $this->model_units->listDinas();
             $this->template->load('template','personel/edit',$data);

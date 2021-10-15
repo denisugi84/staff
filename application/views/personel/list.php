@@ -192,7 +192,7 @@
 
                 <td width="1%" class="f-s-600 text-inverse" align="center"><?php echo $no;?></td>
 
-                <td align="center"><?php if ($this->session->userdata('level')=='Staff' || $this->session->userdata('level')=='Administrator'){?> <a href="<?php echo 'personel/edit/'.$r->NOPEG?>"><?php echo $r->NOPEG ?></a><?php } else { echo $r->NOPEG; }?></td>
+                <td align="center"><?php if ($this->session->userdata('level')=='Staff' || $this->session->userdata('level')=='Administrator'){?> <a href="<?php echo 'personel/detail/'.$r->NOPEG?>"><?php echo $r->NOPEG ?></a><?php } else { echo $r->NOPEG; }?></td>
 
                 <td><?php echo $r->NAMA ?></td>
 
