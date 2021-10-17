@@ -2,34 +2,67 @@
 class model_pengurus extends CI_Model{
     
     
-    function tampildata()
+    function tampildatadpp()
     {
         $this->db->select('*');
         $this->db->from('pengurus');
         $this->db->join('anggota','pengurus.NOPEG=anggota.NOPEG');
         $this->db->join('jabatan','pengurus.KODE_JABATAN=jabatan.KODE_JABATAN');
         $this->db->join('unit','anggota.ID_UNIT=unit.ID_UNIT');
+        $this->db->where('LEVEL','DPP');
         $this->db->order_by('unit.DINAS','ASC');
+        $this->db->order_by('unit.UNIT','ASC');
+
+        return $this->db->get();
+    }
+
+    function tampildatadpd()
+    {
+        $this->db->select('*');
+        $this->db->from('pengurus');
+        $this->db->join('anggota','pengurus.NOPEG=anggota.NOPEG');
+        $this->db->join('jabatan','pengurus.KODE_JABATAN=jabatan.KODE_JABATAN');
+        $this->db->join('unit','anggota.ID_UNIT=unit.ID_UNIT');
+        $this->db->where('LEVEL','DPD');
+        $this->db->order_by('unit.DINAS','ASC');
+        $this->db->order_by('unit.UNIT','ASC');
+
+        return $this->db->get();
+    }
+
+    function tampildatadpc()
+    {
+        $this->db->select('*');
+        $this->db->from('pengurus');
+        $this->db->join('anggota','pengurus.NOPEG=anggota.NOPEG');
+        $this->db->join('jabatan','pengurus.KODE_JABATAN=jabatan.KODE_JABATAN');
+        $this->db->join('unit','anggota.ID_UNIT=unit.ID_UNIT');
+        $this->db->where('LEVEL','DPC');
+        $this->db->order_by('unit.DINAS','ASC');
+        $this->db->order_by('unit.UNIT','ASC');
+
         return $this->db->get();
     }
     
-    function listDinas()
-    {
-        $this->db->group_by('DINAS');
-        return $this->db->get('unit');
+    
+    function listanggota()
+    {   
+        $this->db->select('*');
+        $this->db->from('anggota');
+        $this->db->join('unit','unit.ID_UNIT=anggota.ID_UNIT');
+        $this->db->join('pengurus','pengurus.NOPEG=anggota.NOPEG','left');
+        $this->db->where('STATUS','1');
+        $this->db->order_by('anggota.NOPEG','ASC');
+        return $this->db->get();
     }
 
-     // Get Unit
-    function listUnit($postData){
-        $response = array();
-        
-        // Select record
-        $this->db->select('ID_UNIT,UNIT');
-        $this->db->where('DINAS', $postData);
-        $q = $this->db->get('unit');
-        $response = $q->result_array();
-
-        return $response;
+     function listjabatan()
+    {
+        $this->db->select('*');
+        $this->db->from('pengurus');
+        $this->db->join('jabatan','jabatan.KODE_JABATAN=pengurus.KODE_JABATAN','right');
+        $this->db->order_by('NAMA_JABATAN','ASC');
+        return $this->db->get();
     }
 
     function get_one($id)

@@ -10,7 +10,9 @@ class pengurus extends ci_controller{
     function index()
     {
         
-        $data['record']=  $this->model_pengurus->tampildata();
+        $data['DPP']=  $this->model_pengurus->tampildatadpp();
+        $data['DPD']=  $this->model_pengurus->tampildatadpd();
+        $data['DPC']=  $this->model_pengurus->tampildatadpc();
         $this->template->load('template','pengurus/lihat_data',$data);
         
     }
@@ -20,17 +22,34 @@ class pengurus extends ci_controller{
     {
         if(isset($_POST['submit'])){
             // proses data
-            $unit       =  $this->input->post('inputUnit',true);
-            $dinas      =  $this->input->post('inputDinas',true);
-            $data       =  array(   'UNIT'=>ucwords(strtoupper($unit)),
-                                    'DINAS'=>ucwords(strtoupper($dinas)),
+            $nopeg       =  $this->input->post('inputNopeg',true);
+            $jabatan      =  $this->input->post('inputJabatan',true);
+            $data       =  array(   'NOPEG'=>$nopeg,
+                                    'KODE_JABATAN'=>$jabatan
                                     
                                     ); 
-            $this->db->insert('unit',$data);
-            redirect('units');
+            $sql = $this->db->insert('pengurus',$data);
+            if ($sql){
+            
+            $data['message'] = "Data pengurus berhasil disimpan";
+            $data['alert'] = "success";
+            $data['anggota'] = $this->model_pengurus->listanggota();
+            $data['jabatan'] = $this->model_pengurus->listjabatan();
+            $this->template->load('template','pengurus/form_input',$data);
+
+            } else {
+
+            $data['message'] = "Data pengurus gagal disimpan";
+            $data['alert'] = "danger";
+            $data['anggota'] = $this->model_pengurus->listanggota();
+            $data['jabatan'] = $this->model_pengurus->listjabatan();
+            $this->template->load('template','pengurus/form_input',$data);
+            }
         }
         else{
-            $this->template->load('template','units/form_input');
+            $data['anggota'] = $this->model_pengurus->listanggota();
+            $data['jabatan'] = $this->model_pengurus->listjabatan();
+            $this->template->load('template','pengurus/form_input',$data);
         }
     }
     
