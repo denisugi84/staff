@@ -49,8 +49,7 @@
                         <tr id="<?php echo $DPP->NOPEG?>">
                             <td align="center"><?php echo $no?></td>
                             <?php if ($this->session->userdata('level')=='Staff' || $this->session->userdata('level')=='Administrator'){?>
-
-                            <td align="center" width="100"><a href="<?php echo base_url()?>pengurus/detail/<?php echo DPP->NOPEG;?>"> <?php echo $DPP->NOPEG ?></td>  
+                            <td align="center" width="100"><a href="<?php echo base_url()?>pengurus/detail/<?php echo $DPP->NOPEG;?>"> <?php echo $DPP->NOPEG;?></td>  
                             <?php } else { ?>
                             <td align="center" width="100"><?php echo $DPP->NOPEG ?></td>
                             <?php } ?>
