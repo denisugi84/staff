@@ -1,5 +1,5 @@
 <?php
-class model_pengurus extends CI_Model{
+class Model_pengurus extends CI_Model{
     
     
     function tampildatadpp()

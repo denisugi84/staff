@@ -1,5 +1,5 @@
 <?php
-class model_agenda extends CI_Model{
+class Model_agenda extends CI_Model{
     
     
     function viewdata()

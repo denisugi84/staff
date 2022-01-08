@@ -1,5 +1,5 @@
 <?php
-class model_personel extends CI_Model{
+class Model_personel extends CI_Model{
     
     
     function viewdata($nopeg,$nama,$jabatan,$noAnggota,$unit,$dinas,$kpk,$koperasi)

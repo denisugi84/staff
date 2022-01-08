@@ -1,5 +1,5 @@
 <?php
-class model_dashboard extends ci_model{
+class Model_dashboard extends ci_model{
     
     
      function tampil_data_ac()

@@ -1,5 +1,5 @@
 <?php
-class model_units extends CI_Model{
+class Model_units extends CI_Model{
     
     
     function tampildata()
