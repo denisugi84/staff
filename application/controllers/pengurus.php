@@ -1,5 +1,5 @@
 <?php
-class pengurus extends ci_controller{
+class Pengurus extends ci_controller{
     
    function __construct() {
         parent::__construct();

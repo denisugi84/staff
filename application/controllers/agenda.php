@@ -1,5 +1,5 @@
 <?php
-class agenda extends ci_controller{
+class Agenda extends ci_controller{
     
    function __construct() {
         parent::__construct();

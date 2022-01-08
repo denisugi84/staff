@@ -1,5 +1,5 @@
 <?php
-class personel extends ci_controller{
+class Personel extends ci_controller{
     
    function __construct() {
         parent::__construct();

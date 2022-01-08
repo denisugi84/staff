@@ -1,5 +1,5 @@
 <?php
-class units extends ci_controller{
+class Units extends ci_controller{
     
    function __construct() {
         parent::__construct();

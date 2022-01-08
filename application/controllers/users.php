@@ -1,5 +1,5 @@
 <?php
-class users extends ci_controller{
+class Users extends ci_controller{
     
    function __construct() {
         parent::__construct();
