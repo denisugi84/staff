@@ -177,7 +177,9 @@
                       <th class="text-nowrap">Kopkar</th>
 
                       <th class="text-nowrap">Email</th>
-
+                      <?php if ($this->session->userdata('level')=='Staff' || $this->session->userdata('level')=='Administrator'){?>
+                      <th class="text-nowrap">Action</th>
+                    <?php }?>
                     </tr>
 
                   </thead>
@@ -192,7 +194,7 @@
 
                 <td width="1%" class="f-s-600 text-inverse" align="center"><?php echo $no;?></td>
 
-                <td align="center"><?php if ($this->session->userdata('level')=='Staff' || $this->session->userdata('level')=='Administrator'){?> <a href="<?php echo 'personel/edit/'.$r->NOPEG?>"><?php echo $r->NOPEG ?></a><?php } else { echo $r->NOPEG; }?></td>
+                <td align="center"><a href="<?php echo 'personel/detail/'.$r->NOPEG?>"><?php echo $r->NOPEG ?></a></td>
 
                 <td><?php echo $r->NAMA ?></td>
 
@@ -209,6 +211,9 @@
                 <td align="center"><?php if( $r->KOPERASI == '0'){echo "<span class='badge badge-danger'>Tidak</span>";} else { echo "<span class='badge badge-primary'>Ya</span>";} ?></td>
 
                 <td align="left"><?php echo $r->EMAIL ?></td>
+                <?php if ($this->session->userdata('level')=='Staff' || $this->session->userdata('level')=='Administrator'){?>
+                <td align="center"><a href="<?php echo 'personel/edit/'.$r->NOPEG;?>"><i class="fas fa-pencil-alt fa-fw"></i></a></td>
+                <?php } ?>
 
               </tr>
 
@@ -297,5 +302,3 @@
   <script src="<?php echo base_url();?>assets/js/demo/personel-detail-list.js"></script>
 
   <!-- ================== END PAGE LEVEL JS ================== -->
-
-  <!-- <img src="http://mcc-portal/aog/img/<?php echo $r->idPers;?>.jpg" class="img-rounded height-30" /> -->

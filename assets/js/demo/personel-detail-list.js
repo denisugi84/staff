@@ -98,7 +98,7 @@ var handleMenuMarker = function() {
 
 	document.getElementById("personel").className = 'has-sub active';
 
-	document.getElementById("detail").className = 'active';
+	document.getElementById("list-anggota").className = 'active';
 
 	}
 

@@ -52,7 +52,7 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = 'chrysant';
+$db['default']['password'] = '';
 $db['default']['database'] = 'staff';
 
 /*
@@ -63,8 +63,8 @@ $db['default']['username'] = 'u1482791_denisugi';
 $db['default']['password'] = 'ChrysanT84--';
 $db['default']['database'] = 'u1482791_staff';
 
-
 */
+
 
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
@@ -77,13 +77,13 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-$db['default']['db_debug'] = false;
+
 
 
 $db['conn2']['dbdriver'] = 'mysqli';
 $db['conn2']['dbprefix'] = '';
 $db['conn2']['pconnect'] = TRUE;
-$db['conn2']['db_debug'] = TRUE;
+$db['conn2']['db_debug'] = false;
 $db['conn2']['cache_on'] = FALSE;
 $db['conn2']['cachedir'] = '';
 $db['conn2']['char_set'] = 'utf8';
