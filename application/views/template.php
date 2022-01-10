@@ -13,13 +13,11 @@
 <!-- ================== BEGIN BASE CSS STYLE ================== -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <link href="<?php echo base_url() ?>assets/css/default/app.min.css" rel="stylesheet" />
-  <link href="<?php echo base_url() ?>assets/css/vendor.min.css" rel="stylesheet" />
 
   <!-- ================== END BASE CSS STYLE ================== -->
   
   <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
   <link href="<?php echo base_url() ?>assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
-   <link href="<?php echo base_url() ?>assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
   <link href="<?php echo base_url() ?>assets/plugins/nvd3/build/nv.d3.css" rel="stylesheet" />
   <link href="<?php echo base_url() ?>assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
   <link href="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
@@ -158,20 +156,11 @@ table.dataTable.table-striped.DTFC_Cloned thead {
                             <span>Anggota</span>
                         </a>
                         <ul class="sub-menu">
-                            <li id="list-anggota"><a href="<?php echo base_url() ?>personel">Daftar Anggota</a></li>
-                            <li id="list-pengurus"><a href="<?php echo base_url() ?>pengurus">Daftar Pengurus </a></li>                            
-                        </ul>
-                    </li>
-                    <li class="has-sub" id="meeting">
-                        <a href="javascript:;">
-                            <b class="caret"></b>
-                            <i class="fa fa-book"></i> 
-                            <span>Meeting</span>
-                        </a>
-                        <ul class="sub-menu">
+                            <li id="detail"><a href="<?php echo base_url() ?>personel">Daftar Anggota</a></li>
                             <li id="agenda"><a href="<?php echo base_url() ?>agenda">Agenda Meeting</a></li>
                         </ul>
                     </li>
+                    
                      <?php if ($this->session->userdata('level')=='Administrator'){?>
                     <li class="has-sub" id="admin">
                         <a href="javascript:;">
@@ -181,7 +170,6 @@ table.dataTable.table-striped.DTFC_Cloned thead {
                         </a>
                         <ul class="sub-menu">
                             <li id="users"><a href="<?php echo base_url() ?>users">Users</a></li>
-                            <li id="units"><a href="<?php echo base_url() ?>units">Unit List</a></li>
                             <li id="email"><a href="<?php echo base_url() ?>email">Mailing List</a></li>
                         </ul>
                     </li>
@@ -205,7 +193,7 @@ table.dataTable.table-striped.DTFC_Cloned thead {
         <!-- end #content -->
         <!-- begin #footer -->
         <div id="footer" class="footer">
-            &copy; 2021 GMF Employees Club Web Administration. All Rights Reserved
+            &copy; 2021 GMF EMployees Club Web Administration. All Rights Reserved
         </div>
         <!-- end #footer -->
     

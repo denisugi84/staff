@@ -96,7 +96,7 @@ var TableManageCombine = function () {
 
 var handleMenuMarker = function() {
 
-	document.getElementById("meeting").className = 'has-sub active';
+	document.getElementById("personel").className = 'has-sub active';
 
 	document.getElementById("agenda").className = 'active';
 

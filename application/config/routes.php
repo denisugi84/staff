@@ -40,7 +40,7 @@
 
 $route['default_controller'] = "auth/login";
 $route['404_override'] = 'auth/redirect';
-$route['translate_uri_dashes'] = FALSE;
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -9,11 +9,8 @@ class users extends ci_controller{
     
     function index()
     {
-         if ($this->session->userdata('level') != 'Staff' && $this->session->userdata('level') != 'Administrator'){
-            redirect('dashboard');} else {
         $data['record']=  $this->model_users->tampildata();
         $this->template->load('template','users/lihat_data',$data);
-            }
     }
     
     function post()

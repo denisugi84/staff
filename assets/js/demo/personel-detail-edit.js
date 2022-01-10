@@ -37,20 +37,10 @@ var handleDatepicker = function() {
 
 };
 
-var handleDatepicker2 = function() {
-	$('#datepicker-default-1').datepicker({
-		todayHighlight: true,
-		autoclose:true,
-		format: 'yyyy-mm-dd'
-	});
-
-};
-
-
 
 var handleMenuMarker = function() {
 	document.getElementById("personel").className = 'has-sub active';
-	document.getElementById("list-anggota").className = 'active';
+	document.getElementById("detail").className = 'active';
 	}
 
 var FormPlugins = function () {
@@ -60,7 +50,6 @@ var FormPlugins = function () {
 		init: function () {
 			handleDatepicker();
 			handleMenuMarker();
-			handleDatepicker2();
 	
 		}
 	};
